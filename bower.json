@@ -1,6 +1,6 @@
 {
 	"name": "app.ui.tags",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"description": "Web Component using Polymer that creates an element to create/edit tags",
 	"authors": [
 		"Makis Tracend <makis@makesit.es>"
