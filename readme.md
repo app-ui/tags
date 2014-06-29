@@ -5,8 +5,8 @@ Web Component using Polymer that creates an element to create/edit tags.
 
 ## Examples
 
-[Static](http://rawgit.com/app-ui/tags/master/examples/static.html).
-[Dynamic](http://rawgit.com/app-ui/tags/master/examples/dynamic.html).
+* [Static](http://rawgit.com/app-ui/tags/master/examples/static.html).
+* [Dynamic](http://rawgit.com/app-ui/tags/master/examples/dynamic.html).
 
 ## Dependencies
 
