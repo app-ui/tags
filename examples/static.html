@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>APP UI: Tags</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+	<!-- Importing Web Component's Polyfill -->
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/polymer/0.2.3/platform.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/polymer/0.2.3/polymer.js"></script>
+
+	<!-- Dependencies -->
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/json3/3.2.4/json3.min.js"></script>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
+
+	<!-- Importing Custom Elements -->
+	<link rel="import" href="../component/ui-tags.html">
+
+</head>
+<body>
+
+<p>This is a static execution of the plugin, there is no dynamic generation or interactivity with the tags.</p>
+
+<!-- example -->
+<ui-tags option-editable="false" option-data="landscape|nature|farm|january|lake"></ui-tags>
+
+
+</body>
+</html>
