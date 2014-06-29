@@ -1,0 +1,106 @@
+<polymer-element name="ui-tags" attributes="">
+
+<!-- Backbone plugin -->
+<link rel="stylesheet" href="//rawgit.com/backbone-ui/tags/master/assets/css/backbone.ui.tags.css" type="text/css">
+<script type="text/javascript" src="//rawgit.com/backbone-ui/tags/master/assets/js/backbone.ui.tags.js"></script>
+
+<template>
+<link rel="stylesheet" href="//rawgit.com/backbone-ui/tags/master/assets/css/backbone.ui.tags.css" type="text/css">
+<style>
+	/* duplicated styles */
+	/* these need to be in a linked stylesheet */
+	.ui-tags { list-style-type: none;}
+	.ui-tags li{float:left;}
+	.ui-tags li a{width:auto;height:auto;background:#999999;display:inline-block;padding:0px 5px;color:#ffffff;text-decoration:none;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;position:relative;cursor:pointer;text-align:center;font-weight:normal;font-size:.9em;line-height:200%;margin:5px;}
+	.ui-tags li a:hover{background:#666666;color:#ffffff;}
+	.ui-tags li a:first-child { margin-left: 0 }
+	.ui-tags li.tag .label{margin-right:8px;}
+	.ui-tags li.tag-new input{margin:2px;background-color:#fff;}
+</style>
+<ul id="tags" class="ui-tags">
+	<template repeat="{{value in options.tags}}">
+		<li class="tag"><a><span class="label">{{value}}</span>
+			<template bind if="{{ options.editable == true }}">
+				<span class="del">×</span>
+			</template>
+		</a></li>
+	</template>
+	<template bind if="{{ options.editable == true }}">
+		<li class="tag-new"><input type="text" class="" autocomplete="off" role="textbox"></li>
+	</template>
+</ul>
+</template>
+<script>
+	var PolymerTags = Backbone.UI.Tags.extend({
+		/*
+		render: function(){
+			console.log("re-render");
+			// sync tags
+		},
+		*/
+		_updateField: function(){
+			var data = this.data.output();
+			this.trigger("update-data", { data: data });
+		}
+	});
+</script>
+<script>
+	Polymer('ui-tags', {
+
+		options: {
+			editable: true,
+			tags: [],
+		},
+
+		created: function() {
+			// this is executed when the tag is inserted
+
+			var options = this.options; // defaults
+
+			// get options from attributes
+			if( this.attributes['option-editable'] ){
+				options.editable = this.attributes['option-editable'].value;
+			}
+			if( this.attributes['option-data'] ){
+				options.data = (this.attributes['option-data'].value).split("|");
+				options.tags = (this.attributes['option-data'].value).split("|");
+			}
+			if( this.attributes['option-url'] ){
+				options.url = this.attributes['option-url'].value;
+			}
+
+			this.options = options;
+		},
+
+		domReady: function() {
+
+			var options = this.options;
+			options.el = this.$.tags;
+
+			// initiate view on element
+			this.view = new PolymerTags( options );
+			this.view.on("update-data", _.bind(this.updateData, this)  );
+		},
+
+		updateData: function(e){
+			//console.log( e );
+			var data = e.data;
+			this.attributes['option-data'].value = data.join("|");
+			// sync tags
+			this.options.tags = data;
+		},
+
+		attributeChanged: function(attrName, oldVal, newVal) {
+			//var newVal = this.getAttribute(attrName);
+			//console.log(attrName, 'old: ' + oldVal, 'new:', newVal);
+		},
+
+	});
+</script>
+<style>
+	/* element styles */
+	ui-tags {
+
+	}
+</style>
+</polymer-element>
