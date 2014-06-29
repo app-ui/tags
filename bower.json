@@ -1,0 +1,28 @@
+{
+	"name": "app.ui.tags",
+	"version": "0.0.1",
+	"description": "Web Component using Polymer that creates an element to create/edit tags",
+	"authors": [
+		"Makis Tracend <makis@makesit.es>"
+	],
+	"license": "MIT",
+	"keywords": [
+		"ui",
+		"tags",
+		"polymer",
+		"web-components"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/app-ui/tags.git"
+	},
+	"ignore": [
+		"bower_components",
+		"node_modules"
+	],
+	"dependencies": {
+		"platform": "Polymer/platform#~0.2.3",
+		"polymer": "Polymer/polymer#~0.2.3",
+		"backbone.ui.tags": "*"
+	}
+}
