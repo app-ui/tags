@@ -88,6 +88,7 @@
 			this.attributes['option-data'].value = data.join("|");
 			// sync tags
 			this.options.tags = data;
+			this.fire('input', { data: data }); // fire(inType, inDetail, inToNode)
 		},
 
 		attributeChanged: function(attrName, oldVal, newVal) {
